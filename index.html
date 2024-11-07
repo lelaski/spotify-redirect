@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Redirect</title>
+</head>
+<body>
+    <h1>Spotify Authorization</h1>
+    <p>If you were redirected here, we have your authorization code!</p>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        if (code) {
+            document.body.innerHTML += `<p>Authorization code: ${code}</p>`;
+            // You can also use this code for further steps to exchange it for an access token
+        } else {
+            document.body.innerHTML += '<p>No authorization code found.</p>';
+        }
+    </script>
+</body>
+</html>
